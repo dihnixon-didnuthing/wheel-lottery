@@ -1,0 +1,137 @@
+body {
+  background: #ffffff url("./backdrop/0.jpg");
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;  
+  color: white;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.selecthide {
+  color: white;
+}
+
+.num {
+  width: 100px;
+  height: 100px;
+  border: 0px solid transparent;
+  background: red;
+  float: left;
+  margin-right: 1em;
+  background: transparent url(slot4.png) 0 0px repeat-y;
+  background-size: cover;
+  margin: 5px auto 10px 10px;
+}
+.btn {
+  width: 102px;
+  border: 1px solid black;
+  float: left;
+  margin-right: 1.45em;
+}
+.btn2 {
+  width: 102px;
+  border: 1px solid black;
+  float: left;
+  margin: 0 auto;
+}
+
+.report {
+  position: relative;
+  height: 0px;
+  margin: 0 auto;
+  display: table;
+  background:#f7b93c;
+  padding: 10px 20px 10px 20px;
+  border-bottom-right-radius:5px;border-bottom-left-radius:5px;
+  color: #980000;
+  font-weight: bold;
+  font-size: 30px !important;
+  text-align: center;
+  font-family: Arial;
+}
+
+.report_parent {
+  position: relative;
+  height: 0px;
+  margin: 0 auto;
+  display: table;
+  background:#F5DB79;
+  padding: 2px;
+  border-bottom-right-radius:5px;border-bottom-left-radius:5px;
+  top:53px;
+}
+
+.bottom_div {
+  position: fixed;
+  bottom: 5;
+  left: 0;
+}
+
+input, textarea {
+    color: black;
+}
+
+input::placeholder, textarea::placeholder {
+    color: gray;
+}
+
+.prize {
+  cursor: pointer;
+}
+
+#prizes .winner {
+  border: 3px solid black;
+/*  width: 7em; */
+  height: 1em;
+  text-align: center;
+}
+
+.debuginfo {
+  display: none;
+}
+
+#showtime {
+  display: none;
+}
+
+.d {
+  display: inline;
+}
+
+#prizeinfo {
+  font-size: 10em;
+  display: inline;
+}
+
+.prize {
+  font-size: 5em;
+}
+
+#prizes .amount {
+  font-weight: bold;
+  text-align: right;
+}
+
+#prizes {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.clear {
+  clear: both;
+}
+
+
+#numbers2,
+#numbers3 {
+  transition: transform .5s;
+}
+
+.zoomin {
+  transform: scale(1.5);
+}
+#numbers3.zoomin {
+  margin-top: 45px;
+}
