@@ -22,6 +22,7 @@ var prizes = [];
 var prizeindex = 0;
 var spinleft = 0;
 var currentWinner = null;
+var spinning = false;
 
 function animate(slot,offset) {
   var time = t * (totalheight - offset) / totalheight;  
@@ -44,16 +45,22 @@ function choosenew() {
   while(repick) {
     repick = false;
     if(json!=null && json.Sheet1!=null && json.Sheet1.length>0){
-      max = json.Sheet1.length-1;
+      max = json.Sheet1.length;
       var fl = true;
       var count = 0;
       while(fl){
         person = json.Sheet1[r(max)];
         // person = json.Sheet1.find(fruit => fruit["Mã NV"]=909190);
-        fl = winner.includes(person);
+        fl = winner.some(w => w["Mã NV"] === person["Mã NV"]);
+        if(fl)
+        {
+          console.log("dup");
+          console.log(person["Mã NV"]);
+        }
         count++;
         if(count>10000){
           location.reload();
+          console.log(count);
           return;
         }
       }
@@ -155,10 +162,12 @@ function slotstopped(slot) {
       } 
     }
   }
+  spinning = false;
 }
 
 function doit() {
   remainning = 7;
+  spinning = true;
   $('#numbers2').removeClass('zoomin');
   $('#numbers3').removeClass('zoomin');
 
@@ -265,6 +274,9 @@ function reset() {
 }
 function runevent() {
   console.log("runevent");
+  if (prizes.length === 0) {
+    return;
+  }
   // var max = parseInt($('#numprizes').attr('value'));
   // var incr = parseInt($('#prizeincr').attr('value'));  
   // var dollar = parseInt($('#startdollar').attr('value'));  
@@ -281,9 +293,13 @@ function runevent() {
   // prize.css('font-size',String(h) + 'px');
 
   // prize.click(loadprize);
-  
-  $('#configtime').hide();
+  if(json==null || json.Sheet1==null){
+    return;
+  }
+
+  $('#configtime').hide(); 
   $('#numbers3').hide();
+  $('#prizeselect').show();
   $('#showtime').show();
 }
 var winner = [];
@@ -303,6 +319,7 @@ function handleFile(e) {
     };
     reader.readAsBinaryString(f);
   }
+  e.target.value = '';
 }
 
 function handleprizeFile(e) {
@@ -323,6 +340,17 @@ function handleprizeFile(e) {
   }
 }
 
+function populatePrizeDropdown() {
+  const select = document.getElementById('prizepick');
+  // Clear existing options (keep the first empty one)
+  prizes.forEach((prize, index) => {
+    const option = document.createElement('option');
+    option.value = index;
+    option.textContent = prize.tenGiai;
+    select.appendChild(option);
+  });
+}
+
 function handleprizeWorkbook(workbook) {
   console.log("handleprizeFile loaded");
   
@@ -335,12 +363,14 @@ function handleprizeWorkbook(workbook) {
     qty: parseInt(row["QTY"], 10)
   })).filter(p => p.tenGiai && p.qty > 0);
 
+  populatePrizeDropdown()
   console.log("Prizes loaded:", prizes);
 
   // Start with the first prize
   prizeindex = 0;
   spinleft = prizes[0].qty;
   updateprizeTitle();
+  runevent();
 }
 
 function updateprizeTitle() {
@@ -410,6 +440,39 @@ function handleWorkbook(workbook) {
 
 document.querySelector("#file").addEventListener('change', handleFile, false);
 document.querySelector("#file2").addEventListener('change', handleprizeFile, false);
+document.addEventListener('keydown', function(e) {
+    if (e.code === 'Space' || e.code === 'Enter') {
+        e.preventDefault(); 
+        if (!spinning) {
+            choosenew();
+            doit();
+        } else {
+            stop(7);
+        }
+    }
+});
+
+window.addEventListener('beforeunload', function(e) {
+  if (winner.length > 0) {
+    e.preventDefault();
+  }
+});
+
+
+document.getElementById('prizesubmit').addEventListener('click', function(e) {
+  const select = document.getElementById('prizepick');
+  const selectedIndex = select.value;
+  if (selectedIndex === '') {
+    alert('Chưa chọn giải?');
+    return;
+  }
+  const index = parseInt(selectedIndex, 10);
+  if (index >= 0 && index < prizes.length) {
+    prizeindex = index;
+    spinleft = prizes[prizeindex].qty;
+    updateprizeTitle();}
+
+});
 
 $(function() {
     choosenew();

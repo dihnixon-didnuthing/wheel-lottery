@@ -31,6 +31,11 @@
       <p class="file">List Giải thưởng:<input type="file" id="file2"></p>
       <!-- <input type="button" value="Run the event" onclick="runevent()"/> -->
     </div>
+    <div class="prizepick" id="prizeselect"> Chọn giải:
+          <select id="prizepick" name="prizepick">
+          </select>
+          <input id="prizesubmit"  type="submit">
+    </div>
     <div id="header">
       <h1 style="font-family: Rokkitt, sans-serif; text-align: center; padding-top:100px; color: #F5DB79; font-size: 4vw;">
         QUAY TRÚNG THƯỞNG
@@ -64,7 +69,7 @@
 
       <div class="bottom_div">
         <p>
-          <input type="button" class="btn" value="Clear" onclick="reset()"/>
+          <input type="button" class="btn" value="Luu Session" onclick="savesession()"/>
         </p>
         <p>
           <input type="button" class="btn" value="Dừng nhanh" onclick="stop(7)"/>

@@ -66,6 +66,22 @@ body {
   position: fixed;
   bottom: 5;
   left: 0;
+  opacity:0.1;
+}
+
+.bottom_div:hover {
+  opacity: 1;
+  transition-duration: 250ms;
+}
+
+.prizepick {
+  opacity:0.6;
+  display: none;
+}
+
+.prizepick:hover {
+  opacity: 1;
+  transition-duration: 250ms;
 }
 
 input, textarea {
