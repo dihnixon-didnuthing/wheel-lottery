@@ -6,30 +6,14 @@
     <script src="jquery.color.js"> </script>
     <script src="jquery.pulse.js"> </script>
     <script src="./xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <link href="roll.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
   </head>
   <body>
     <div id='configtime'>
-      <!-- <p>This number is the last ticket sold.  If the last ticket sold
-      is 520 and you enter 520 in the box above, the system will choose
-      numbers between 1 and 520 including both 1 and 520</p>
-
-      <p>Maximum roll number <input type="text" id="maxroll" value="9999999"/>
-      </p>
-
-
-      <p>Starting dollar amount <input type="text" id="startdollar" value="50"/>
-      </p>
-
-      <p>Number of prizes before the grand prize <input type="text" id="numprizes" value="5"/>
-      </p>
-
-      <p>Prize increment before grand prize<input type="text" id="prizeincr" value="50"/>
-      </p> -->
       <p class="file">List NV:<input type="file" id="file"></p>
       <p class="file">List Giải thưởng:<input type="file" id="file2"></p>
-      <!-- <input type="button" value="Run the event" onclick="runevent()"/> -->
     </div>
     <div class="prizepick" id="prizeselect"> Chọn giải:
           <select id="prizepick" name="prizepick">
@@ -37,16 +21,16 @@
           <input id="prizesubmit"  type="submit">
     </div>
     <div id="header">
-      <h1 style="font-family: Rokkitt, sans-serif; text-align: center; padding-top:100px; color: #F5DB79; font-size: 4vw;">
+      <h1>
         QUAY TRÚNG THƯỞNG
       </h1>
-      </div>
-      <div id="prize_title" style="font-family: Rokkitt, sans-serif; text-align: center; color: #F5DB79; font-size: 3vw; max-width: 70%; width: fit-content; margin-left: auto; margin-right: auto;">
+    </div>
+    <div id="prize_title">
         Giải: 
-      </div>
-    <div id='showtime' style="display: block;position: absolute;width: 100%;height: 50%;margin: 0 auto">
-      <div id='numbers2' style="position: relative; height: 100px;margin: 0 auto;display: table;background:#F5DB79;padding: 2px;border-radius:5px;top:50px;">
-        <div id='numbers' style="position: relative; height: 100px;margin: 0 auto;display: table;background:#f7b93c;padding-right: 10px;border-radius:5px">
+    </div>
+    <div id='showtime' style="display: block;position: absolute;width: 100%;height: 50%;margin: 0 auto;">
+      <div id='numbers2'>
+        <div id='numbers'>
         <!-- <div id='numbers' style="width: 100%;font-family: AvenirCondensed;font-size: 5em;text-align:center;margin: 0 auto;display:table;"> -->
           <div class="num" id="num0" onclick="stop(0)">
           </div>
@@ -56,7 +40,6 @@
           </div>
           <div class="num" id="num3" onclick="stop(3)">
           </div>
-         <div class="clear"> </div>
         </div>
       </div>
 
@@ -69,7 +52,7 @@
 
       <div class="bottom_div">
         <p>
-          <input type="button" class="btn" value="Luu Session" onclick="savesession()"/>
+          <input type="button" class="btn" value="Ghép Session" onclick="mergeWinners()"/>
         </p>
         <p>
           <input type="button" class="btn" value="Dừng nhanh" onclick="quickstop()"/>
@@ -96,9 +79,7 @@
         new random number" if you change the maximum. -->
       </div>
 
-      <p class="selecthide">
-      <!-- Number chosen:  --><span id="rand"> </span>
-      </p>
+      
     </div>
 
     <script src="roll.js">

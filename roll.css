@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'MiBold';
+    src: url('./cormorant/junicode-smexpsmbold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MiReg';
+    src: url('./cormorant/junicode-lightitalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   background: #ffffff url("./backdrop/0.jpg");
   background-size:     cover;                      /* <------ */
@@ -6,6 +19,25 @@ body {
   color: white;
   overflow-y: hidden;
   overflow-x: hidden;
+}
+
+#header h1{
+  font-family: MiBold, sans-serif; 
+  text-align: center; 
+  padding-top:3vw; 
+  color: #F5DB79;
+  font-size: 5.5vw;
+}
+
+#prize_title{
+  font-family: MiReg, sans-serif;
+  text-align: center; 
+  color: #F5DB79; 
+  max-width: 70%; width: 
+  fit-content; 
+  margin-left: auto; 
+  margin-right: auto;
+  font-size: 4.25vw;
 }
 
 .selecthide {
@@ -139,15 +171,35 @@ input::placeholder, textarea::placeholder {
   clear: both;
 }
 
+#numbers2{
+  position: relative; 
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  display: table;
+  background:#F5DB79;
+  padding: 2px;
+  border-radius:5px;
+  top:50px;
+}
 
+#numbers{
+  position: relative; 
+  height: 100px;
+  margin: 0 auto;
+  display: table;
+  background:#f7b93c;
+  padding-right: 10px;
+  border-radius:5px
+}
+
+#header h1,
+#prize_title
 #numbers2,
 #numbers3 {
   transition: transform .5s;
 }
 
 .zoomin {
-  transform: scale(1.5);
-}
-#numbers3.zoomin {
-  margin-top: 45px;
+  transform: scale(1.10);
 }
