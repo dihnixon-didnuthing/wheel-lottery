@@ -14,6 +14,8 @@
 
 /* ── Body ── */
 body {
+  margin: 0;
+  padding: 0;
   background: #ffffff url("./sample_data/backdrop/0.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,11 +23,10 @@ body {
   color: white;
   overflow: hidden;
   background-position: center center;
-  transition: margin-right 0.4s ease-out, background-position 0.4s ease-out;
+  transition: background-position 0.4s ease-out;
 }
 
 body.shifted {
-  margin-right: 300px;
   background-position: calc(50% - 150px) center;
 }
 
@@ -186,9 +187,64 @@ body.shifted {
   background: #2a2a2a;
 }
 
+#prizes_table td:first-child {
+  width: 30px;
+  text-align: center;
+}
+
+#prizes_table input[type="radio"] {
+  cursor: pointer;
+  accent-color: #f7b93c;
+}
+
+/* ── Main Layout ── */
+#main_layout {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  transition: width 0.4s ease-out;
+}
+
+body.shifted #main_layout {
+  width: calc(100% - 300px);
+}
+
+.sidebar {
+  flex: 1;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#sidebar_left {
+  border-right: none;
+  background:rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 0 8px 8px 0;
+}
+
+#sidebar_right {
+  border-left: none;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 8px 0 0 8px;
+}
+
+#main_content {
+  flex: 5;
+  background-color: #9a1214;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
 /* ── Header ── */
 #header h1 {
   font-family: JuniBold, sans-serif;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   padding-top: 3vw;
   color: #F5DB79;
@@ -219,32 +275,36 @@ body.shifted {
 
 #header h1, #prize_title {
   transition: transform 400ms ease-in-out, font-size 400ms ease-in-out;
+  border-radius: 8px;
+  padding: 8px 20px;
 }
 
 #header h1.shifted{
-  font-size: 4.4vw;
+  font-size: 4.3vw;
 }
 #prize_title.shifted{
   font-size: 3.4vw;
 }
+body.shifted #numbers2 {
+  transform: scale(0.9);
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  transition: 400ms ease-in-out;
+}
+
+body.shifted #numbers3 {
+  transform: scale(0.9);
+  transition: 400ms ease-in-out;
+}
+
 
 /* ── Showtime ── */
 #showtime {
   display: hidden;
-  position: absolute;
-  width: 100%;
   height: 50%;
   margin: 0 auto;
   transition: width 0.4s ease-out, right 0.4s ease-out;
 }
-
-body.shifted #showtime {
-  width: calc(100% - 300px) !important;
-  transform: scale(0.95);
-  transition: transform 0.4s ease-out, width 0.4s ease-out;
-}
-
-
 
 /* ── Numbers ── */
 #numbers2 {
@@ -258,6 +318,7 @@ body.shifted #showtime {
   padding: 2px;
   border-radius: 5px;
   top: 50px;
+  min-width: fit-content;
 }
 
 #numbers {
@@ -268,6 +329,8 @@ body.shifted #showtime {
   background: #f7b93c;
   padding-right: 10px;
   border-radius: 5px;
+  min-width: fit-content;
+  white-space: nowrap;
 }
 
 
@@ -275,10 +338,11 @@ body.shifted #showtime {
   width: 100px;
   height: 100px;
   border: 0px solid transparent;
-  float: left;
   background: transparent url(./slot4.png) 0 0px repeat-y;
   background-size: cover;
   margin: 5px auto 10px 10px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 
@@ -361,6 +425,21 @@ body.shifted #showtime {
 .bottom_div:hover {
   opacity: 1;
   transition-duration: 250ms;
+}
+
+#configtime {
+  display: block;
+  position: fixed;
+  font-size: 14px;
+  width: fit-content;
+  bottom: 60;
+  left: 0;
+  z-index: 9999;
+}
+
+#configtime input[type="file"] {
+  font-size: 14px;
+  width: 160px;
 }
 
 /* ── Inputs ── */

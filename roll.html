@@ -43,6 +43,7 @@
     <table id="prizes_table">
       <thead>
         <tr>
+          <th style="width:30px"></th>
           <th>Prize</th>
           <th>QTY</th>
         </tr>
@@ -51,44 +52,35 @@
     </table>
   </div>
 </div>
-    <div id='configtime'>
-      <p class="file">1. Import danh sách NV<input type="file" id="file"></p>
-      <p class="file">2. Import danh sách Giải<input type="file" id="file2"></p>
-    </div>
-    <div class="prizepick" id="prizeselect"> Chọn giải:
+<!--    <div class="prizepick" id="prizeselect"> Chọn giải:
           <select id="prizepick" name="prizepick">
           </select>
-          <input id="prizesubmit"  type="submit">
+          <input id="prizesubmit"  type="submit"> -->
     </div>
+    <div id="main_layout">
+  <div id="sidebar_left" class="sidebar"></div>
+
+  <div id="main_content">
     <div id="header">
-      <h1>
-        QUAY SỐ TRÚNG THƯỞNG
-      </h1>
+      <h1>QUAY SỐ TRÚNG THƯỞNG</h1>
     </div>
     <div id="prize_title">
-        Giải __________
+      Giải __________
     </div>
     <div id='showtime'>
       <div id='numbers2'>
         <div id='numbers'>
-        <!-- <div id='numbers' style="width: 100%;font-family: AvenirCondensed;font-size: 5em;text-align:center;margin: 0 auto;display:table;"> -->
-          <div class="num" id="num0" onclick="stop(0)">
-          </div>
-          <div class="num" id="num1" onclick="stop(1)">
-          </div>
-          <div class="num" id="num2" onclick="stop(2)">
-          </div>
-          <div class="num" id="num3" onclick="stop(3)">
-          </div>
+          <div class="num" id="num0" onclick="stop(0)"></div>
+          <div class="num" id="num1" onclick="stop(1)"></div>
+          <div class="num" id="num2" onclick="stop(2)"></div>
+          <div class="num" id="num3" onclick="stop(3)"></div>
         </div>
       </div>
-
       <div id='numbers3' class="report_parent">
-          <div id="report" class="report">
-        </div>
+        <div id="report" class="report"></div>
       </div>
-
     </div>
+  </div>
 
   <div id="sidebar_right" class="sidebar"></div>
 </div>
@@ -102,6 +94,10 @@
         <p>
           <input type="button" class="btn" value="Xuất DS" onclick="exportWinners()"/>
         </p>
+      </div>
+      <div id='configtime'>
+        <p class="file">1. Import danh sách NV<input type="file" id="file"></p>
+        <p class="file">2. Import danh sách Giải<input type="file" id="file2"></p>
       </div>
       <br/>
 
