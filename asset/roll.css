@@ -206,6 +206,12 @@ body.shifted {
   accent-color: #f7b93c;
 }
 
+#add_prize_row td{color:#555;text-align:center;cursor:pointer;padding:10px 8px;font-size:18px;transition:color .2s}
+#add_prize_row:hover td{color:#f7b93c}
+.new-prize-row td{background:#222}
+.new-prize-row [contenteditable]{color:#eee;min-width:40px;display:inline-block}
+.new-prize-row [contenteditable]:empty::before{content:attr(data-ph);color:#555;pointer-events:none}
+
 /* ── Main Layout ── */
 #main_layout {
   display: flex;
