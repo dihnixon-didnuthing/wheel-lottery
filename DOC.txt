@@ -1,1 +1,20 @@
-https://deepwiki.com/dihnixon-didnuthing/wheelroll-lottery/7-glossary
+When two valid worksheet has been given you can press spin to start the roll, spinprize() is called. 
+
+spinprize will call choosenew() and doit(). These function will choose a winner and spin the wheel. The wheel will keep spinning until the user click on all of the numbers or use 'Dung nhanh' or Spacebar for quickstop.
+
+The program is preferably run in Fullscreen mode. So a click on Dung nhanh btn will go into fullscreen mode. However you can keep spinning the wheel via Spacebar if prefer to be out of the Fscr mode. 
+
+
+Once the program has exhausted all prizes, it will automatically print the winner list. 
+
+When closed without exporting the list of winners you will be prompted to restore your session. If picked yes, once you loaded the lists, you will merge the list of winners. If you use the same prize list the prizes already spun will be automatically removed. If its a different list, the list of past winners will be appended to the list of winners in current list
+
+When program starts, 
+choosenew() is called 
+
+Fn will 
+
+GOALS:
+CHANGE HEADER H1 DONE
+AUTOMATICALLY CHANGE FONT COLOR WITH BG IMG
+SAMPLE FORMS DOWNLOAD BTN DONE
